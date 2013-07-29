@@ -1,0 +1,4 @@
+knib_todo:
+    resource: "@KnibTodoBundle/Resources/config/routing.yml"
+    prefix:   /
+

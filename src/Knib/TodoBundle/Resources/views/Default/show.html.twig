@@ -1,0 +1,9 @@
+{% extends "KnibTodoBundle::layout.html.twig" %}
+
+{% block content %}
+<p>
+    <strong>Id</strong>: {{ task.id }}<br/>
+    <strong>Title</strong>: {{ task.name }}<br/>
+    <strong>Status</strong>: {{ task.isdone ? 'done' : 'not finished' }}
+</p>
+{% endblock %}

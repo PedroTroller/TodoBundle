@@ -1,0 +1,29 @@
+security:
+    encoders:
+        Knib\TodoBundle\Entity\User: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        administrators:
+                entity: { class: KnibTodoBundle:User, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login_firewall:
+            pattern:    ^/login$
+            anonymous:  ~
+
+        secured_area:
+            pattern: ^/
+            anonymous: true
+            form_login:
+                login_path: signup
+                check_path: _security_check
+            logout:
+                path: _logout

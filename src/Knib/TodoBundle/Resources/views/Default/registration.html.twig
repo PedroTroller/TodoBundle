@@ -1,0 +1,11 @@
+{% extends "KnibTodoBundle::layout.html.twig" %}
+
+{% block content %}
+	<h2>Registration</h2>
+	<form novalidate action="{{ path('signup') }}" method="post">
+		{{ form_widget(form) }}
+		<div>
+		<button type="submit">Register</button>
+		</div>
+	</form>
+{% endblock %}

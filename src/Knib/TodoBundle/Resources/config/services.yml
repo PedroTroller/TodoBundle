@@ -1,0 +1,7 @@
+parameters:
+#    knib_todo.example.class: Knib\TodoBundle\Example
+
+services:
+#    knib_todo.example:
+#        class: %knib_todo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

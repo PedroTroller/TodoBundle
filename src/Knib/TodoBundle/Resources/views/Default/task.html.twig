@@ -1,0 +1,36 @@
+{% extends "KnibTodoBundle::layout.html.twig" %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% for task in tasks %}
+            <tr>
+              <td style="width:70%"><a href="{{ path('knib_todo_show', {id : task.id}) }}">{{ task.name }}</a></td>
+              <td class="center">
+            {% if task.isdone %}
+                <span class="done">Done</span>
+            {% else %}
+                <form action="{{ path('knib_todo_close', {id : task.id}) }}" method="post">
+                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="submit" value="Close" />
+                </form>    
+            {% endif %}
+              </td>
+              <td>
+                <form action="{{ path('knib_todo_delete', {id : task.id}) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <input type="submit" value="Delete" />
+                </form>                  
+              </td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

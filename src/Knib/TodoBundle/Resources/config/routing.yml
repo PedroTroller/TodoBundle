@@ -1,0 +1,46 @@
+knib_todo_homepage:
+    pattern:  /
+    defaults: { _controller: KnibTodoBundle:Task:index }
+
+knib_todo_new:
+    pattern: /new
+    defaults: { _controller: KnibTodoBundle:Task:new }
+    requirements:
+     _method:  POST|GET
+    
+knib_todo_show:
+    pattern: /show/{id}
+    defaults: { _controller: KnibTodoBundle:Task:show }
+    requirements:
+        id:  \d+
+        _method:  GET
+        
+knib_todo_close:
+    pattern: /close/{id}
+    defaults: { _controller: KnibTodoBundle:Task:close }
+    requirements:
+        id:  \d+
+        _method:  PUT
+        
+knib_todo_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: KnibTodoBundle:Task:delete }   
+    requirements:
+        id:  \d+    
+        _method:  DELETE
+        
+signin:
+    pattern: /login
+    defaults:
+        _controller: KnibTodoBundle:Task:signin
+        
+_security_check:
+    pattern: /login_check
+
+_logout:
+    pattern: /logout
+    
+signup:
+    pattern: /registration
+    defaults:
+        _controller: KnibTodoBundle:Task:registration

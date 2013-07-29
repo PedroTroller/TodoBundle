@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset("bundles/knibtodo/css/style.css")}}">
+{% endblock %}
+{% block body %}
+    <div id="container">
+            <h1>
+                    <img src="{{ asset('../src/Knib/TodoBundle/Resources/public/img/Sans titre.png') }}" style="width:8%" alt="Knib">
+                    <a href="{{ path('knib_todo_homepage') }}" >Todo</a>     
+            </h1>
+            <div id="menu">
+                <a class="button" href="{{ path('knib_todo_new') }}">New</a>
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <a class="button" href="{{ path('_logout') }}">Logout</a>
+                {% else %}
+                    <a class="button" href="{{ path('signin') }}">Log in</a>
+                    <a class="button" href="{{ path('signup') }}">Register</a>
+                {% endif %}
+            </div>
+            <div id="content">
+                    {% block content %}
+                    {% endblock %}
+            </div>
+    </div>
+{% endblock %}
