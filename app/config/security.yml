@@ -23,7 +23,7 @@ security:
             pattern: ^/
             anonymous: true
             form_login:
-                login_path: signup
-                check_path: _security_check
+                login_path: login
+                check_path: login_check
             logout:
-                path: _logout
+                path: logout

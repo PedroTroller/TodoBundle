@@ -7,40 +7,40 @@ knib_todo_new:
     defaults: { _controller: KnibTodoBundle:Task:new }
     requirements:
      _method:  POST|GET
-    
+
 knib_todo_show:
     pattern: /show/{id}
     defaults: { _controller: KnibTodoBundle:Task:show }
     requirements:
         id:  \d+
         _method:  GET
-        
+
 knib_todo_close:
     pattern: /close/{id}
     defaults: { _controller: KnibTodoBundle:Task:close }
     requirements:
         id:  \d+
         _method:  PUT
-        
+
 knib_todo_delete:
     pattern: /delete/{id}
-    defaults: { _controller: KnibTodoBundle:Task:delete }   
+    defaults: { _controller: KnibTodoBundle:Task:delete }
     requirements:
-        id:  \d+    
+        id:  \d+
         _method:  DELETE
-        
-signin:
+
+login:
     pattern: /login
     defaults:
-        _controller: KnibTodoBundle:Task:signin
-        
-_security_check:
+        _controller: KnibTodoBundle:Task:login
+
+login_check:
     pattern: /login_check
 
-_logout:
+logout:
     pattern: /logout
-    
-signup:
+
+registration:
     pattern: /registration
     defaults:
         _controller: KnibTodoBundle:Task:registration
