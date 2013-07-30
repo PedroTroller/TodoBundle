@@ -11,10 +11,10 @@
             <div id="menu">
                 <a class="button" href="{{ path('knib_todo_new') }}">New</a>
                 {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                    <a class="button" href="{{ path('_logout') }}">Logout</a>
+                    <a class="button" href="{{ path('logout') }}">Logout</a>
                 {% else %}
-                    <a class="button" href="{{ path('signin') }}">Log in</a>
-                    <a class="button" href="{{ path('signup') }}">Register</a>
+                    <a class="button" href="{{ path('login') }}">Log in</a>
+                    <a class="button" href="{{ path('registration') }}">Register</a>
                 {% endif %}
             </div>
             <div id="content">

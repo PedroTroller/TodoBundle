@@ -16,10 +16,10 @@ class TaskController extends Controller
         $repository = $this->getDoctrine()
                 ->getRepository('KnibTodoBundle:Task');
         $tasks = $repository->findAll();
-        
+
         return $this->render('KnibTodoBundle:Default:task.html.twig', array('tasks' => $tasks));
     }
-    
+
     public function newAction(Request $request){
         $task = new Task();
         $form = $this->createFormBuilder($task)
@@ -37,10 +37,10 @@ class TaskController extends Controller
                 return $this->redirect($this->generateUrl('knib_todo_homepage'));
             }
         }
-        
+
          return $this->render('KnibTodoBundle:Default:new.html.twig', array('form' => $form->createView(),));
     }
-    
+
     public function showAction($id)
     {
         $repository = $this->getDoctrine()
@@ -51,7 +51,7 @@ class TaskController extends Controller
         }
         return $this->render('KnibTodoBundle:Default:show.html.twig', array('task' => $task));
     }
-    
+
     public function closeAction($id){
         $rep = $this->getDoctrine()->getManager();
         $task = $rep->getRepository('KnibTodoBundle:Task')->find($id);
@@ -62,7 +62,7 @@ class TaskController extends Controller
         $rep->flush();
         return $this->redirect($this->generateUrl('knib_todo_homepage'));
     }
-    
+
     public function deleteAction($id){
         $rep = $this->getDoctrine()->getManager();
         $task = $rep->getRepository('KnibTodoBundle:Task')->find($id);
@@ -73,15 +73,15 @@ class TaskController extends Controller
         $rep->flush();
         return $this->redirect($this->generateUrl('knib_todo_homepage'));
     }
-    
-    public function signinAction(Request $request){
+
+    public function loginAction(Request $request){
             $session = $request->getSession();
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
             return $this->render('KnibTodoBundle:Default:signin.html.twig', array('last_username' => $session->get(SecurityContext::LAST_USERNAME),
                      'error' => $error,));
     }
-    
+
     public function registrationAction(Request $request)
     {
             $user = new User();
